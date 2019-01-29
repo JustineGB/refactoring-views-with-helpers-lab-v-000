@@ -1,9 +1,9 @@
 <h1>Song Show Page</h1>
-<h1>Song Name: <%= link_to @song.title, song_path(@song) %></h1>
-<h1>Artist Name: <%= display_artist (@song) %></h1>
+<h3>Song Name: <%= link_to @song.title, song_path(@song) %></h3>
+<h3>Artist Name: <%= display_artist (@song) %></h3>
 <%#= link_to @song.artist.name, artist_path(@song) %>
 
 
-<h4>Main Menu: <%= link_to "All Songs", songs_path %></h4>
+<h5>Main Menu: <%= link_to "All Songs", songs_path %></h5>
 
 <%#= @song.artist_name %>
