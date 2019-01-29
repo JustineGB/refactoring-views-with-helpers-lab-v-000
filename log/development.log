@@ -2375,3 +2375,30 @@ Cannot render console from 174.16.137.187! Allowed networks: 127.0.0.1, ::1, 127
 Processing by Rails::WelcomeController#index as HTML
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
 Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for 174.16.137.187 at 2019-01-29 20:41:19 +0000
+Cannot render console from 174.16.137.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs"
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered songs/index.html.erb within layouts/application (48.2ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined local variable or method `artist' for #<#<Class:0x000000049df270>:0x007f003895e2e8>
+Did you mean?  artist_url):
+    4: <% @songs.each do |song| %>
+    5:   <li>Song: <%= link_to song.title, song_path(song) %></li>
+    6:   <li>Artist: <%= link_to song.artist_name, artist_path(song) %></li>
+    7:   <li>Edit Artist: <%= display_artist(artist) %> </li><br>
+    8: <% end %>
+    9: </ul>
+   10: <br>
+  app/views/songs/index.html.erb:7:in `block in _app_views_songs_index_html_erb___981557170502951523_69819463035000'
+  app/views/songs/index.html.erb:4:in `_app_views_songs_index_html_erb___981557170502951523_69819463035000'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (48.0ms)
