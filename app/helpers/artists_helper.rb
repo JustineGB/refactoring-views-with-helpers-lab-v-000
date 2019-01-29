@@ -4,7 +4,6 @@ module ArtistsHelper
       link_to song.artist_name, artist_path(song.artist)
     else
      link_to name="Add Artist", edit_song_path(song)
-    else 
     end 
   end 
   
