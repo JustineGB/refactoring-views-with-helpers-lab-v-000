@@ -2686,3 +2686,29 @@ Processing by SongsController#show as HTML
   [1m[36mArtist Load (0.1ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 2]]
   Rendered songs/show.html.erb within layouts/application (2.5ms)
 Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/2" for 174.16.137.187 at 2019-01-29 21:10:10 +0000
+Cannot render console from 174.16.137.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSong Load (0.1ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered songs/show.html.erb within layouts/application (43.6ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (undefined local variable or method `song' for #<#<Class:0x007f7e98d191d8>:0x007f7e98d514e8>
+Did you mean?  @song):
+    1: <h1>Song Show Page</h1>
+    2: <h3>Song Name: <%= link_to @song.title, song_path(@song) %></h3>
+    3: <h3>Artist Name: <%= link_to display_artist(@song), edit_song_path(song) %></h3>
+    4: <%#= link_to @song.artist.name, artist_path(@song) %>
+    5: 
+    6: 
+  app/views/songs/show.html.erb:3:in `_app_views_songs_show_html_erb__518149278478341729_70090853300260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.9ms)
