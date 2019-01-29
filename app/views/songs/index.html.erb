@@ -4,7 +4,7 @@
 <% @songs.each do |song| %>
   <li>Song: <%= link_to song.title, song_path(song) %></li>
   <li>Artist: <%= link_to song.artist_name, artist_path(song) %></li>
-  <li>Edit Artist: <%= display_artist(artist) %> </li><br>
+  <li>Edit Artist: <%= display_artist(song) %> </li><br>
 <% end %>
 </ul>
 <br>
